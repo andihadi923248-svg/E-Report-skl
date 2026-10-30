@@ -1761,6 +1761,62 @@
 
 </footer>
 
+<!-- Back To Top Button -->
+<button
+    id="backToTop"
+    type="button"
+    class="btn btn-primary rounded-circle shadow"
+    onclick="backToTop()"
+    style="
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+        width: 50px;
+        height: 50px;
+        display: none;
+        z-index: 9999;
+    "
+    aria-label="Back to top">
+
+    ↑
+
+</button>
+
+
+<script>
+
+    const backToTopButton =
+        document.getElementById("backToTop");
+
+
+    // Tampilkan tombol setelah scroll
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 300) {
+
+            backToTopButton.style.display = "block";
+
+        } else {
+
+            backToTopButton.style.display = "none";
+
+        }
+
+    });
+
+
+    // Kembali ke atas
+    function backToTop() {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+</script>
+
 
 <!-- =========================
      SCROLL ANIMATION
