@@ -1,0 +1,707 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Track Report - E-Report</title>
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .track-section {
+            min-height: 100vh;
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+
+        .track-card {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .report-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="index.html">
+            E-Report
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#about">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#services">
+                        Services
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="history.html">
+                        History
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="track-report.html">
+                        Track Report
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- TRACK SECTION -->
+
+<section class="track-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h1 class="fw-bold">
+                Track Your Report
+            </h1>
+
+            <p class="text-muted">
+                Silakan masukkan nomor laporan Anda untuk mengecek laporan.
+            </p>
+
+        </div>
+
+
+
+        <!-- SEARCH -->
+
+        <div class="card border-0 shadow-sm track-card mb-4">
+
+            <div class="card-body p-4">
+
+                <label class="form-label fw-semibold">
+                    Report Number
+                </label>
+
+
+                <div class="input-group">
+
+                    <input
+                        type="text"
+                        id="reportNumber"
+                        class="form-control"
+                        placeholder="Example: REP-001"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="searchReport()">
+
+                        Search
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NOT FOUND -->
+
+        <div
+            id="notFound"
+            class="alert alert-danger track-card"
+            style="display: none;">
+
+            <strong>Report not found.</strong>
+
+            <br>
+
+            Please check your report number.
+
+        </div>
+
+
+
+        <!-- RESULT -->
+
+        <div
+            id="result"
+            class="card border-0 shadow-sm track-card"
+            style="display: none;">
+
+            <div class="card-body p-4">
+
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+
+                    <div>
+
+                        <small class="text-muted">
+                            Report Number
+                        </small>
+
+                        <h3
+                            id="resultId"
+                            class="fw-bold mb-0">
+                        </h3>
+
+                    </div>
+
+
+                    <span
+                        id="resultStatus"
+                        class="badge rounded-pill px-3 py-2">
+                    </span>
+
+                </div>
+
+
+
+                <!-- IMAGE -->
+
+                <img
+                    id="resultImage"
+                    src=""
+                    class="report-image mb-4"
+                    alt="Report Image">
+
+
+
+                <!-- TITLE -->
+
+                <h4
+                    id="resultTitle"
+                    class="fw-bold mb-4">
+                </h4>
+
+
+
+                <!-- INFORMATION -->
+
+                <div class="row g-3">
+
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded p-3">
+
+                            <small class="text-muted">
+                                Category
+                            </small>
+
+                            <div
+                                id="resultCategory"
+                                class="fw-semibold">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded p-3">
+
+                            <small class="text-muted">
+                                Location
+                            </small>
+
+                            <div
+                                id="resultLocation"
+                                class="fw-semibold">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded p-3">
+
+                            <small class="text-muted">
+                                Priority
+                            </small>
+
+                            <div
+                                id="resultPriority"
+                                class="fw-semibold text-capitalize">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <div class="border rounded p-3">
+
+                            <small class="text-muted">
+                                Date
+                            </small>
+
+                            <div
+                                id="resultDate"
+                                class="fw-semibold">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="mt-4">
+
+                    <h6 class="fw-bold">
+                        Description
+                    </h6>
+
+                    <p
+                        id="resultDescription"
+                        class="text-muted">
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer class="bg-dark text-white py-4">
+
+    <div class="container text-center">
+
+        <p class="mb-0">
+            © 2026 E-Report. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+<script>
+
+
+// ==================================================
+// DEFAULT REPORT
+// ==================================================
+
+const defaultReports = [
+
+    {
+        id: "REP-001",
+        title: "Kerusakan Fasilitas Kelas",
+        category: "Facility",
+        location: "Classroom",
+        description: "Some classroom facilities are damaged and need to be repaired.",
+        priority: "medium",
+        status: "Pending",
+        date: "28/10/2026",
+        image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80"
+    },
+
+    {
+        id: "REP-002",
+        title: "Masalah Jaringan Internet",
+        category: "Network",
+        location: "Computer Lab",
+        description: "The internet connection is slow and unstable.",
+        priority: "high",
+        status: "Process",
+        date: "27/10/2026",
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
+    },
+
+    {
+        id: "REP-003",
+        title: "Lampu Ruangan Mati",
+        category: "Electrical",
+        location: "Classroom",
+        description: "The classroom lamp is not working.",
+        priority: "low",
+        status: "Completed",
+        date: "26/10/2026",
+        image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80"
+    },
+
+    {
+        id: "REP-004",
+        title: "AC Tidak Berfungsi",
+        category: "Facility",
+        location: "Classroom",
+        description: "The classroom air conditioner is not working properly.",
+        priority: "medium",
+        status: "Pending",
+        date: "25/10/2026",
+        image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
+    },
+
+    {
+        id: "REP-005",
+        title: "Keyboard Komputer Rusak",
+        category: "Computer",
+        location: "Computer Lab",
+        description: "One of the keyboards in the computer lab is damaged.",
+        priority: "low",
+        status: "Process",
+        date: "24/10/2026",
+        image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=800&q=80"
+    },
+
+    {
+        id: "REP-006",
+        title: "Kebersihan Ruangan",
+        category: "Cleanliness",
+        location: "Classroom",
+        description: "The classroom needs better cleaning and maintenance.",
+        priority: "medium",
+        status: "Completed",
+        date: "23/10/2026",
+        image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80"
+    }
+
+];
+
+
+
+// ==================================================
+// SEARCH FUNCTION
+// ==================================================
+
+function searchReport() {
+
+
+    // Ambil input
+    let input =
+        document.getElementById("reportNumber").value
+        .trim()
+        .toUpperCase();
+
+
+    const result =
+        document.getElementById("result");
+
+    const notFound =
+        document.getElementById("notFound");
+
+
+    // Kalau kosong
+    if (input === "") {
+
+        result.style.display = "none";
+
+        notFound.style.display = "block";
+
+        notFound.innerHTML =
+            "<strong>Report number is empty.</strong><br>" +
+            "Please enter a report number.";
+
+        return;
+
+    }
+
+
+
+    // ==================================================
+    // AMBIL DATA LAPORAN BARU
+    // ==================================================
+
+    let userReports =
+        JSON.parse(
+            localStorage.getItem("myReports")
+        ) || [];
+
+
+
+    // Gabungkan laporan bawaan + laporan baru
+
+    let allReports = [
+        ...defaultReports,
+        ...userReports
+    ];
+
+
+
+    // Cari berdasarkan ID
+
+    let foundReport =
+        allReports.find(function(report) {
+
+            return report.id.toUpperCase() === input;
+
+        });
+
+
+
+    // ==================================================
+    // TIDAK DITEMUKAN
+    // ==================================================
+
+    if (!foundReport) {
+
+        result.style.display = "none";
+
+        notFound.style.display = "block";
+
+        notFound.innerHTML =
+            "<strong>Report not found.</strong><br>" +
+            "Please check your report number.";
+
+        return;
+
+    }
+
+
+
+    // ==================================================
+    // DITEMUKAN
+    // ==================================================
+
+    notFound.style.display = "none";
+
+    result.style.display = "block";
+
+
+
+    // ID
+
+    document.getElementById("resultId").innerText =
+        foundReport.id;
+
+
+
+    // TITLE
+
+    document.getElementById("resultTitle").innerText =
+        foundReport.title;
+
+
+
+    // CATEGORY
+
+    document.getElementById("resultCategory").innerText =
+        foundReport.category;
+
+
+
+    // LOCATION
+
+    document.getElementById("resultLocation").innerText =
+        foundReport.location;
+
+
+
+    // PRIORITY
+
+    document.getElementById("resultPriority").innerText =
+        foundReport.priority;
+
+
+
+    // DATE
+
+    document.getElementById("resultDate").innerText =
+        foundReport.date;
+
+
+
+    // DESCRIPTION
+
+    document.getElementById("resultDescription").innerText =
+        foundReport.description;
+
+
+
+    // ==================================================
+    // STATUS
+    // ==================================================
+
+    const status =
+        document.getElementById("resultStatus");
+
+
+    status.innerText =
+        foundReport.status;
+
+
+    status.className =
+        "badge rounded-pill px-3 py-2";
+
+
+    if (foundReport.status === "Pending") {
+
+        status.classList.add("text-bg-warning");
+
+    }
+
+    else if (foundReport.status === "Process") {
+
+        status.classList.add("text-bg-info");
+
+    }
+
+    else if (foundReport.status === "Completed") {
+
+        status.classList.add("text-bg-success");
+
+    }
+
+    else {
+
+        status.classList.add("text-bg-secondary");
+
+    }
+
+
+
+    // ==================================================
+    // IMAGE
+    // ==================================================
+
+    const image =
+        document.getElementById("resultImage");
+
+
+    if (
+        foundReport.image &&
+        foundReport.image.startsWith("data:image")
+    ) {
+
+        image.src =
+            foundReport.image;
+
+    }
+
+    else if (foundReport.image) {
+
+        image.src =
+            foundReport.image;
+
+    }
+
+    else {
+
+        image.src =
+            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80";
+
+    }
+
+}
+
+
+
+// ==================================================
+// ENTER KEY
+// ==================================================
+
+document.getElementById("reportNumber")
+.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        event.preventDefault();
+
+        searchReport();
+
+    }
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
+```

@@ -1,0 +1,50 @@
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.scroll-animate.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animasi dari kiri */
+.scroll-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+}
+
+.scroll-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animasi dari kanan */
+.scroll-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+}
+
+.scroll-right.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animasi zoom */
+.scroll-zoom {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s ease;
+}
+
+.scroll-zoom.show {
+    opacity: 1;
+    transform: scale(1);
+}

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+        href="bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
+
+    <title>Create Report - E-Report</title>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar bg-white border-bottom">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold"
+                href="index.html">
+
+                E-REPORT
+
+            </a>
+
+
+            <a href="index.html"
+                class="btn btn-outline-primary">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- FORM -->
+
+    <main class="container py-5">
+
+
+        <!-- HEADING -->
+
+        <div class="text-center mb-5">
+
+            <span class="badge text-bg-primary mb-3">
+
+                E-REPORT
+
+            </span>
+
+
+            <h1 class="fw-bold">
+
+                Create New Report
+
+            </h1>
+
+
+            <p class="text-secondary">
+
+                Fill in the information below to submit your report.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- FORM CARD -->
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="card border-0 shadow-sm">
+
+                    <div class="card-body p-4 p-md-5">
+
+
+                        <form id="reportForm">
+
+
+                            <!-- REPORT TITLE -->
+
+                            <div class="mb-4">
+
+                                <label
+                                    for="reportTitle"
+                                    class="form-label fw-semibold">
+
+                                    Report Title
+
+                                </label>
+
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="reportTitle"
+                                    placeholder="Example: Broken classroom fan">
+
+                            </div>
+
+
+
+                            <!-- CATEGORY -->
+
+                            <div class="mb-4">
+
+                                <label
+                                    for="reportCategory"
+                                    class="form-label fw-semibold">
+
+                                    Category
+
+                                </label>
+
+
+                                <select
+                                    class="form-select"
+                                    id="reportCategory">
+
+                                    <option
+                                        value=""
+                                        selected
+                                        disabled>
+
+                                        Select category
+
+                                    </option>
+
+
+                                    <option value="Facility">
+                                        Facility
+                                    </option>
+
+
+                                    <option value="Network">
+                                        Network
+                                    </option>
+
+
+                                    <option value="Cleanliness">
+                                        Cleanliness
+                                    </option>
+
+
+                                    <option value="Security">
+                                        Security
+                                    </option>
+
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <!-- LOCATION -->
+
+                            <div class="mb-4">
+
+                                <label
+                                    for="reportLocation"
+                                    class="form-label fw-semibold">
+
+                                    Location
+
+                                </label>
+
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="reportLocation"
+                                    placeholder="Example: Classroom 10 RPL">
+
+                            </div>
+
+
+
+                            <!-- DESCRIPTION -->
+
+                            <div class="mb-4">
+
+                                <label
+                                    for="reportDescription"
+                                    class="form-label fw-semibold">
+
+                                    Description
+
+                                </label>
+
+
+                                <textarea
+                                    class="form-control"
+                                    id="reportDescription"
+                                    rows="5"
+                                    placeholder="Explain the problem in detail..."></textarea>
+
+                            </div>
+
+
+
+                            <!-- IMAGE -->
+
+                            <div class="mb-4">
+
+                                <label
+                                    for="reportImage"
+                                    class="form-label fw-semibold">
+
+                                    Supporting Image
+
+                                </label>
+
+
+                                <input
+                                    type="file"
+                                    class="form-control"
+                                    id="reportImage"
+                                    accept="image/*">
+
+
+                                <div class="form-text">
+
+                                    Upload an image if it helps explain the report.
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- PRIORITY -->
+
+                            <div class="mb-4">
+
+                                <label
+                                    class="form-label fw-semibold">
+
+                                    Priority
+
+                                </label>
+
+
+                                <div class="d-flex gap-4">
+
+
+                                    <div class="form-check">
+
+                                        <input
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="priority"
+                                            id="low"
+                                            value="Low"
+                                            checked>
+
+
+                                        <label
+                                            class="form-check-label"
+                                            for="low">
+
+                                            Low
+
+                                        </label>
+
+                                    </div>
+
+
+
+                                    <div class="form-check">
+
+                                        <input
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="priority"
+                                            id="medium"
+                                            value="Medium">
+
+
+                                        <label
+                                            class="form-check-label"
+                                            for="medium">
+
+                                            Medium
+
+                                        </label>
+
+                                    </div>
+
+
+
+                                    <div class="form-check">
+
+                                        <input
+                                            class="form-check-input"
+                                            type="radio"
+                                            name="priority"
+                                            id="high"
+                                            value="High">
+
+
+                                        <label
+                                            class="form-check-label"
+                                            for="high">
+
+                                            High
+
+                                        </label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- AGREEMENT -->
+
+                            <div class="mb-4">
+
+                                <div class="form-check">
+
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        id="agreement">
+
+
+                                    <label
+                                        class="form-check-label"
+                                        for="agreement">
+
+                                        I confirm that the information
+                                        provided is correct.
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- BUTTONS -->
+
+                            <div class="d-flex justify-content-end gap-2">
+
+
+                                <button
+                                    type="reset"
+                                    class="btn btn-outline-secondary">
+
+                                    Reset
+
+                                </button>
+
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary">
+
+                                    <i class="bi bi-send"></i>
+
+                                    Submit Report
+
+                                </button>
+
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- BOOTSTRAP JS -->
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <!-- SUBMIT REPORT -->
+
+    <script>
+
+        const reportForm =
+            document.getElementById("reportForm");
+
+
+        reportForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                // =========================
+                // AMBIL DATA
+                // =========================
+
+                const title =
+                    document
+                    .getElementById("reportTitle")
+                    .value
+                    .trim();
+
+
+                const category =
+                    document
+                    .getElementById("reportCategory")
+                    .value;
+
+
+                const location =
+                    document
+                    .getElementById("reportLocation")
+                    .value
+                    .trim();
+
+
+                const description =
+                    document
+                    .getElementById("reportDescription")
+                    .value
+                    .trim();
+
+
+                const imageInput =
+                    document
+                    .getElementById("reportImage");
+
+
+                const agreement =
+                    document
+                    .getElementById("agreement")
+                    .checked;
+
+
+                const priorityInput =
+                    document.querySelector(
+                        'input[name="priority"]:checked'
+                    );
+
+
+                // =========================
+                // VALIDASI
+                // =========================
+
+                if (
+                    title === "" ||
+                    category === "" ||
+                    location === "" ||
+                    description === ""
+                ) {
+
+                    alert(
+                        "Silakan lengkapi semua data laporan."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!agreement) {
+
+                    alert(
+                        "Silakan centang persetujuan terlebih dahulu."
+                    );
+
+                    return;
+
+                }
+
+
+                // =========================
+                // AMBIL DATA LAMA
+                // =========================
+
+                let reports =
+                    JSON.parse(
+                        localStorage.getItem("myReports")
+                    ) || [];
+
+
+                // =========================
+                // CARI NOMOR TERBESAR
+                // =========================
+
+                let highestNumber = 6;
+
+
+                reports.forEach(
+                    function(report) {
+
+                        if (!report.id) {
+                            return;
+                        }
+
+
+                        const number =
+                            parseInt(
+                                report.id
+                                    .replace("REP-", "")
+                            );
+
+
+                        if (
+                            !isNaN(number) &&
+                            number > highestNumber
+                        ) {
+
+                            highestNumber =
+                                number;
+
+                        }
+
+                    }
+                );
+
+
+                const reportNumber =
+                    String(
+                        highestNumber + 1
+                    ).padStart(3, "0");
+
+
+
+                // =========================
+                // SIMPAN REPORT
+                // =========================
+
+                function saveReport(imageData) {
+
+
+                    const newReport = {
+
+                        id:
+                            "REP-" +
+                            reportNumber,
+
+
+                        title:
+                            title,
+
+
+                        category:
+                            category,
+
+
+                        location:
+                            location,
+
+
+                        description:
+                            description,
+
+
+                        priority:
+                            priorityInput
+                                ? priorityInput.value
+                                : "Low",
+
+
+                        status:
+                            "Pending",
+
+
+                        date:
+                            new Date()
+                                .toLocaleDateString(
+                                    "en-GB"
+                                ),
+
+
+                        image:
+                            imageData
+
+                    };
+
+
+                    // Tambahkan report
+
+                    reports.push(
+                        newReport
+                    );
+
+
+                    // Simpan ke browser
+
+                    localStorage.setItem(
+                        "myReports",
+                        JSON.stringify(
+                            reports
+                        )
+                    );
+
+
+                    // Berhasil
+
+                    alert(
+                        "Laporan berhasil dibuat!\n\n" +
+                        "Nomor laporan: " +
+                        newReport.id
+                    );
+
+
+                    // Ke History
+
+                    window.location.href =
+                        "history.html";
+
+                }
+
+
+
+                // =========================
+                // SIMPAN GAMBAR
+                // =========================
+
+                if (
+                    imageInput.files.length > 0
+                ) {
+
+
+                    const file =
+                        imageInput.files[0];
+
+
+                    const reader =
+                        new FileReader();
+
+
+                    reader.onload =
+                        function(event) {
+
+                            saveReport(
+                                event.target.result
+                            );
+
+                        };
+
+
+                    reader.readAsDataURL(
+                        file
+                    );
+
+
+                } else {
+
+
+                    // Tidak ada gambar
+
+                    saveReport("");
+
+                }
+
+            }
+        );
+
+
+
+    </script>
+
+
+
+    <!-- SCROLL ANIMATION -->
+
+    <script>
+
+        const scrollElements =
+            document.querySelectorAll(
+                ".scroll-animate, .scroll-left, .scroll-right, .scroll-zoom"
+            );
+
+
+        const scrollObserver =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(
+                        (entry) => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target
+                                    .classList
+                                    .add("show");
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        scrollElements.forEach(
+            (element) => {
+
+                scrollObserver.observe(
+                    element
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
