@@ -35,6 +35,8 @@
 
 <body>
 
+    <div id="top"></div>
+
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
@@ -635,26 +637,37 @@
 
 </footer>
 
-<!-- Back To Top Button -->
-<button
+<!-- Back To Top -->
+<a
+    href="#top"
     id="backToTop"
-    type="button"
     class="btn btn-primary rounded-circle shadow"
-    onclick="backToTop()"
-    style="
+    aria-label="Back to top">
+
+    ↑
+
+</a>
+
+<style>
+    #backToTop {
         position: fixed;
         right: 25px;
         bottom: 25px;
         width: 50px;
         height: 50px;
-        display: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 24px;
+        font-weight: bold;
+
         z-index: 9999;
-    "
-    aria-label="Back to top">
 
-    ↑
-
-</button>
+        text-decoration: none;
+    }
+</style>
 
 
 <script>
